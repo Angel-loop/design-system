@@ -38,10 +38,19 @@
 
 /* Box sizin */
 
+
+/* General */
 *,
 *::before,
 *::after{
   box-sizing: border-box;
+}
+
+/* makes the margin even on both top and bottom */
+/* flow > :not(:first-child) */
+/* code below behaves like the one above */
+.flow > * + *{
+  margin-top: var(--flow-space, 1rem);
 }
 
 body,
@@ -62,6 +71,7 @@ body{
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   background:hsl(var(--clr-dark) );
+  color: hsl(var(--clr-white) );
   line-height: 1.5;
   min-height: 100vh;
 }
@@ -80,6 +90,12 @@ textarea,
 button,
 select{
   font: inherit;
+}
+
+a,
+a:visited{
+  text-decoration: none;
+  color: inherit;
 }
 
 /* removes animations for people who've turned them off */
@@ -167,3 +183,92 @@ select{
  .fs-900{
   line-height: 1.1;
  }
+
+ .numbered-title{
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-400);
+  font-weight: 500;
+  letter-spacing: 0.300rem;
+  text-transform: uppercase;
+  margin-right: 1em;
+
+}
+
+.numbered-title > span{
+  margin-right: .1em;
+  font-weight: 700;
+  color: hsl(var(--clr-white) / 0.25 );
+}
+
+
+/*-----------------------*/
+/* Components            */
+/*-----------------------*/
+.large-button {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+}
+
+.large-button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: hsl( var(--clr-white) / .1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+.underline-indicators > * {
+  padding: var(--underline-gap, 1rem) 0;
+  border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-color: hsl( var(--clr-white) / .5);
+}
+
+.underline-indicators > .active{
+  border-color: hsl( var(--clr-white) / 1);
+}
+
+.navbar{
+  place-items: center;
+  margin: 2rem 0rem 0 2rem;
+  padding: 0;
+}
+.navbar img{
+  margin-right: auto;
+}
