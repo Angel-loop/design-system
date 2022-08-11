@@ -36,10 +36,13 @@
 /*-----------------------*/
 
 
-/* Box sizin */
-
-
 /* General */
+
+ul{
+  list-style-type: none;
+}
+
+/* Box sizin */
 *,
 *::before,
 *::after{
@@ -260,9 +263,11 @@ a:visited{
   border-color: hsl( var(--clr-white) / .5);
 }
 
-.underline-indicators > .active{
+.underline-indicators > li > a > .active{
   border-color: hsl( var(--clr-white) / 1);
 }
+
+
 
 .navbar{
   place-items: center;
@@ -272,3 +277,4 @@ a:visited{
 .navbar img{
   margin-right: auto;
 }
+
