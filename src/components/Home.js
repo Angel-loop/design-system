@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 export const Home = () =>{
    
    return(
-    <div className="grid-container">
+    <div className="grid-container grid-container--home">
         <div>
             <h1 className='ff-sans-cond fs-500 uppercase letter-spacing-2'>So, You want to travel to
-                <span className="ff-serif fs-900 d-block">space</span>
+                <span className="ff-serif fs-900 d-block" style={{marginBottom: '100em'}}>space</span>
             </h1>
 
             <p>  Let’s face it; if you want to go to space, you might as well genuinely go to 

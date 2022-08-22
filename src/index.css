@@ -96,10 +96,11 @@ body {
   background-color: hsl( var(--clr-dark) );
   line-height: 1.5;
   min-height: 100vh;
-
   display: grid;
   grid-template-rows: min-content 1fr;
+
 }
+
 
 /* make images easier to work with */
 img,
@@ -127,10 +128,6 @@ select {
   scroll-behavior: auto !important;
 }
 }
-
-
-
-
 
 
 /* ------------------- */
@@ -167,6 +164,8 @@ select {
   text-align: center;
   display: grid;
   place-items: center;
+  height: 100vh;
+  padding-inline: 2em;
 }
 
 
@@ -183,12 +182,17 @@ select {
   
   .grid-container > *:first-child {
       grid-column: 2;
-      outline: 1px solid red;
+      
   }
 
   .grid-container > *:last-child {
       grid-column: 3;
-      outline: 1px solid yellow;
+      
+  }
+
+  .grid-container--home{
+    padding-bottom: 8rem;
+    align-items: end;
   }
 }
 .sr-only {
@@ -363,3 +367,28 @@ border: 0;
   margin-right: auto;
 }
 
+body{
+  background-size: cover;
+  background-position: bottom center;
+  
+}
+
+.body-background{
+
+  background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 45em) {
+  
+  .body-background{
+    background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+}
+
+footer{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+}

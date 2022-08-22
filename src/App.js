@@ -2,19 +2,19 @@ import { Link, Routes, Route } from "react-router-dom";
 import  logo  from './assets/shared/logo.svg'
 import { Home } from "./components/Home";
 import { Crew } from "./components/Crew";
+import { Footer } from "./components/Footer";
 const App = () => {
   
 
  
     return (
-  <div>
-        <header className='primary-navigation'>
+  <div className='App' >
+        <div className='primary-navigation'>
         
-  
             <nav className='navbar flex'> 
                 
                 <img src={logo} alt=''></img>
-                <ul className='underline-indicators flex'>
+                {/* <ul className='underline-indicators flex'>
 
                     <li>
                         <Link to='/' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>00</span>Home</Link>
@@ -32,7 +32,7 @@ const App = () => {
                         <Link to='tech' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>03</span>Technology</Link>
                     </li>
 
-                </ul>
+                </ul> */}
             
             </nav>
 
@@ -45,8 +45,9 @@ const App = () => {
 
 
 
-    </header>
+    </div>
 
+        
   </div>
   )
   }
