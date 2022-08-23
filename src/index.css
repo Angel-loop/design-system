@@ -99,6 +99,8 @@ body {
   display: grid;
   grid-template-rows: min-content 1fr;
 
+  overflow-x: hidden;
+
 }
 
 
@@ -191,7 +193,7 @@ select {
   }
 
   .grid-container--home{
-    padding-bottom: 8rem;
+    padding-bottom: 8em;
     align-items: end;
   }
 }
@@ -301,14 +303,21 @@ border: 0;
   transform: scale(1.5);
 }
 
-.primary-navigation {
-  --gap: 8rem;
-  --underline-gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Navigation  */
+
+.logo{
+  margin: 2rem clamp(1.5rem, 5vw, 3.5rem);
 }
 
+.primary-navigation {
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0 1.5em;
+  margin: 0;
+  background: hsl( var(--clr-dark) / 0.95);
+  
+}
 .primary-navigation a {
   text-decoration: none;
 }
@@ -316,6 +325,112 @@ border: 0;
 .primary-navigation a > span {
   font-weight: 700;
   margin-right: .5em;
+}
+
+@supports (backdrop-filter: blur(2rem)){
+  .primary-navigation{
+    background-color: hsl( var(--clr-white) / .1);
+    backdrop-filter: blur(2rem);
+  }
+}
+
+
+.mobile-nav-toggle{
+  display: none;
+}
+
+@media (max-width: 35rem){
+  .primary-navigation {
+    --underline-gap: .5rem;
+    list-style: none;
+    position: fixed;
+    inset: 0 0 0 30%;
+    padding: min(20rem, 15vh) 2rem;
+    z-index: 10;
+    margin: 0;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 250ms ease-in-out;
+    
+  }
+
+  .mobile-nav-toggle{
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    top: 2rem;
+    right: 1rem;
+    background: transparent;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-position: center;
+    border: 0;
+
+  }
+
+  .open{
+    
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    top: 2rem;
+    right: 1rem;
+    background: transparent;
+    background-image: url(./assets/shared/icon-close.svg);
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-position: center;
+    border: 0;
+  }
+
+  .mobile-menu-open{
+    
+    transform: translateX(0%);
+  }
+
+ 
+
+}
+
+@media (min-width: 35em){
+  .primary-navigation{
+    padding-inline: clamp(3rem, 4rem, 6rem);
+  }
+}
+
+@media (min-width: 35em) and (max-width: 45em){
+
+  
+  .primary-navigation{
+    padding-inline: 3rem;
+    flex-direction: row;
+  }
+
+
+  .primary-navigation a > span {
+    display: none;
+
+  }
+
+  .primary-header{
+    flex-direction: column;
+    place-items: center;
+  }
+
+
+}
+
+@media (min-width: 45em) {
+  
+
+  .primary-navigation{
+    margin-block: 2rem;
+  }
+
+
 }
 
 .underline-indicators > * {
@@ -357,38 +472,81 @@ border: 0;
   background-color: hsl( var(--clr-white) / 1); 
 }
 
-.navbar{
-  place-items: center;
-  margin: 2rem 0rem 0 2rem;
-  padding: 0;
-}
 
-.navbar img{
-  margin-right: auto;
-}
-
-body{
-  background-size: cover;
-  background-position: bottom center;
-  
-}
 
 .body-background{
+  background-size: cover;
+  background-position: bottom center;
 
+}
+
+.home{
   background-image: url(./assets/home/background-home-mobile.jpg);
 }
 
-@media (min-width: 45em) {
-  
-  .body-background{
-    background-image: url(./assets/home/background-home-desktop.jpg);
-  }
+.destination{
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
 }
 
-footer{
-  background-color: white;
-  color: black;
-  padding: 10px;
-  display: grid;
-  place-items: center;
+.crew{
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
 }
+
+.tech{
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  
+
+  .home{
+    background-position: center center;
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+
+  .destination{
+    background-position: center center;
+    background-image: url(./assets/destination/background-destination-tablet.jpg);
+  }
+
+  .crew{
+    background-position: center center;
+    background-image: url(./assets/crew/background-crew-tablet.jpg);
+  }
+
+  .tech{
+    background-position: center center;
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+
+}
+
+
+
+@media (min-width: 45em) {
+  
+  .primary-header{
+    justify-content:space-between;
+  }
+ 
+  .home{
+    background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+
+  .destination{
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
+  }
+
+  .crew{
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
+  }
+
+  .tech{
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+  }
+
+}
+
+
+
+

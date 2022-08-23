@@ -1,10 +1,17 @@
-
+import { Navbar } from "./Navbar"
 
 export const Crew = () => {
    
 
 
     return(
-        <h1>Meet Your Crew</h1>
+        <>
+        <Navbar/>
+        <div className="grid-container">
+        
+            <h1>Meet Your Crew</h1>
+        
+        </div>
+        </>
     )
 }
