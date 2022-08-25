@@ -3,7 +3,7 @@ import { Home } from "./components/Home";
 import { Crew } from "./components/Crew";
 import { Technology } from "./components/Technology";
 import { Destination } from "./components/Destination"
-
+import React from 'react';
 
 
 
