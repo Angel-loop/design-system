@@ -19,7 +19,7 @@ export const Home = () =>{
             </div>
 
             <div>
-                <Link to='crew' className="large-button uppercase ff-serif text-dark bg-white">Explore</Link>
+                <Link to='destination' className="large-button uppercase ff-serif text-dark bg-white">Explore</Link>
             </div>
     </div>
     </>
