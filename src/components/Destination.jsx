@@ -21,11 +21,10 @@ const images = {
 }
 
 const DestinationNavBar = (props) => {
-    console.log(props)
 
     return(
         <>
-            <ul className=" tab-list underline-indicators flex" >
+            <ul className=" tab-list underline-indicators flex destination-tab">
                 <li  className={props.page === 0 ? "active ff-sans-cond letter-spacing-1 uppercase" : "ff-sans-cond letter-spacing-1 uppercase"} onClick={()=>{props.setPage(0)}}>Moon</li>
                 <li  className={props.page === 1 ? "active ff-sans-cond letter-spacing-1 uppercase" : "ff-sans-cond letter-spacing-1 uppercase"} onClick={()=>{props.setPage(1)}}>Mars</li>
                 <li  className={props.page === 2 ? "active ff-sans-cond letter-spacing-1 uppercase" : "ff-sans-cond letter-spacing-1 uppercase"} onClick={()=>{props.setPage(2)}}>Europa</li>
@@ -36,22 +35,18 @@ const DestinationNavBar = (props) => {
 }
 
 
-const Component = (props) =>{
+const InfoPage = (props) =>{
 
     const currentPage = props.info[props.page]
-    console.log(props)
-    
+
     return (
-        <main className="grid-container">
+        <main className="grid-container flow">
 
             <div>
-            
-                
-                <img src={images[currentPage.name]} alt=''></img>
-                
+                <img src={images[currentPage.name]} alt='' style={{maxWidth: '100%'}}></img>
             </div>
             
-            <article className="destination-info">
+            <article>
             <DestinationNavBar setPage={props.setPage} page={props.page}/>
                 <h2 className="fs-800 ff-serif uppercase">{currentPage.name}</h2>
                 <p className="text-accent">{currentPage.description}</p>
@@ -86,12 +81,12 @@ export const Destination = ()=> {
         <>
             <Navbar/>
             
-            <div id="destination-tilte">
-                <h1  className="numbered-title fs-400"><span>01</span>Pick your destination</h1>
+            <div className="page-title">
+                <h1  className="numbered-title fs-400 uppercase"><span>01</span>Pick your destination</h1>
             </div>
             
 
-                <Component 
+                <InfoPage 
                 page={page}
                 setPage={setPage}
                 info={info}/>

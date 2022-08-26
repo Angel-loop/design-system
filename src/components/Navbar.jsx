@@ -1,5 +1,5 @@
 import  logo  from '../assets/shared/logo.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import React from 'react';
 
@@ -10,7 +10,7 @@ export const Navbar = ()=> {
 
     const handleClick = ()=> {
         setIsOpen((prevState)=> !prevState)
-        console.log(isOpen)
+        
     }
     
     
@@ -20,9 +20,9 @@ export const Navbar = ()=> {
         
         
 
-        <div>
+        <NavLink to='/'>
             <img src={logo} alt='Company logo' className="logo"></img>
-        </div>
+        </NavLink>
     
         {/* Aria-controls adds screen reader support */}
 
@@ -31,27 +31,11 @@ export const Navbar = ()=> {
         </button>
         
 
-            <nav> 
-                <ul id='primary-navigation' className={isOpen ? 'primary-navigation underline-indicators flex mobile-menu-open' : 'primary-navigation underline-indicators flex'}>
-
-                    <li>
-                        <Link to='/' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>00</span>Home</Link>
-                    </li>
-
-                    <li>
-                        <Link to='/destination' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>01</span>Destination</Link>
-                    </li>
-
-                    <li>
-                        <Link to='/crew' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>02</span>Crew</Link>
-                    </li>
-                    
-                    <li>
-                        <Link to='/tech' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>03</span>Technology</Link>
-                    </li>
-
-                </ul>
-            
+            <nav id='primary-navigation' className={isOpen ? 'primary-navigation underline-indicators flex mobile-menu-open' : 'primary-navigation underline-indicators flex'}> 
+                <NavLink to='/' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'  ><span>00</span>Home</NavLink>
+                <NavLink to='/destination' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>01</span>Destination</NavLink>
+                <NavLink to='/crew' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>02</span>Crew</NavLink>
+                <NavLink to='/tech' className='numbered-title letter-spacing-2 uppercase text-white ff-sans-cond'><span>03</span>Technology</NavLink>
             </nav>
             </header>
     )
