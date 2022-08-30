@@ -260,6 +260,11 @@ border: 0;
 .logo{
   margin: 3.5rem clamp(1.5rem, 5vw, 3.5rem);
 }
+@media(max-width: 35em){
+  .logo{
+    margin: 1.75rem 1rem;
+  }
+}
 
 .primary-navigation {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
@@ -417,6 +422,61 @@ border: 0;
 }
 
 .dot-indicators > .active {
+  background-color: hsl( var(--clr-white) / 1); 
+}
+
+.circled-indicators{
+  justify-content: flex-start;
+
+}
+
+.circled-indicators ul{
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.circled-indicators li{
+  display: inline-block;
+  margin: .5rem .3rem;
+  height: 3rem;
+  color: #fff;
+  border: 1px solid;
+  width: 3rem;
+  line-height: 2.5rem;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-size: 2rem;
+
+}
+.circled-indicators span{
+  position: relative;
+}
+.circled-indicators li::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 0;
+  transition: all 0.5s;
+  
+}
+.circled-indicators li::before{
+  transform: scale(0);
+  border-radius: 50%;
+}
+.circled-indicators li:hover::before,
+.circled-indicators li:hover{
+  transform: scale(1);
+  color: black;
+}
+
+.circled-indicators > span > .active{
   background-color: hsl( var(--clr-white) / 1); 
 }
 
@@ -579,6 +639,36 @@ border: 0;
 }
 
 
+/* Tech Layout */
+.grid-container--tech {
+  --flow-space: 2rem;
+  grid-template-areas: 
+      'title'
+      'image'
+      'tabs'
+      'content';
+}
+
+.grid-container--tech > img {
+ 
+    grid-area: image;
+    max-width: 100%;
+    border-bottom: 1px solid hsl( var(--clr-white) / .1);
+  
+}
+
+.grid-container--tech > .circled-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--tech > .tech-details {
+  grid-area: content;
+}
+
+.tech-details > h2{
+  opacity: .5;
+}
+
 @media (min-width: 35em){
   .page-title{
     display: block;
@@ -596,7 +686,17 @@ border: 0;
         'title'
         'content'
         'tabs'
-        'image';
+        'image'
+        ;
+  }
+  .grid-container--tech {
+    padding-bottom: 0;
+    grid-template-areas: 
+        'title'
+        'image'
+        'content'
+        'tabs'
+        ;
   }
 }
 
@@ -616,6 +716,17 @@ border: 0;
   .grid-container--crew > img{
     max-width: 100%;
     align-self: end;
+  }
+
+  .grid-container--tech {
+    grid-template-areas: 
+    '. title title .' 
+    'tabs content image .' 
+    'tabs content image .';
+  }
+  .grid-container--tech > img{
+    max-width: 100%;
+
   }
 
   .grid-container--crew > .dot-indicators{

@@ -27,11 +27,11 @@ export const Crew = () => {
         <Navbar/>
         
         <div className="page-title">
-                
+        <h1  className="numbered-title"><span>02</span>Meet your Crew</h1>
             </div>
         
         <main className="grid-container grid-container--crew">
-            <h1  className="numbered-title"><span>02</span>Meet your Crew</h1>
+            
             <div className="dot-indicators flex">
                 <button className={page === 0 ? "active" : ""} onClick={()=>{setPage(0)}}><span className="sr-only">The Commander</span></button>
                 <button className={page === 1 ? "active" : ""} onClick={()=>{setPage(1)}}><span className="sr-only">The Mission Specialist</span></button>
