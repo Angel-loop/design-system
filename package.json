@@ -5,18 +5,18 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "vite": "^3.0.9"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
-    "vite": "^3.0.7"
+    "vite": "^3.0.9",
+    "vite-plugin-svgr": "^2.2.1",
+    "vite-tsconfig-paths": "^3.5.0"
   },
   "scripts": {
-  "start": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "preview": "vite preview"
   },
